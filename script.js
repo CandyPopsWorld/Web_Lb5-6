@@ -99,3 +99,78 @@ function renderProductsList() {
 document.addEventListener("DOMContentLoaded", () => {
     renderProductsList();
 });
+
+class GoodsItem {
+    constructor(title, price, image, color, size, quantity) {
+        this.title = title;
+        this.price = price;
+        this.image = image;
+        this.color = color;
+        this.size = size;
+        this.quantity = quantity;
+    }
+
+    render() {
+        return `
+            <div class="cart-item">
+                <div class="item-left">
+                    <img src="${this.image}" alt="${this.title}" class="item-image">
+                </div>
+                <div class="item-right">
+                    <div class="item-header">
+                        <h4 class="item-name">${this.title}</h4>
+                        <img src="images/close.svg" alt="Close" class="close-icon">
+                    </div>
+                    <p class="item-detail">Price: <span>$${this.price.toFixed(2)}</span></p>
+                    <p class="item-detail">Color: <span>${this.color}</span></p>
+                    <p class="item-detail">Size: <span>${this.size}</span></p>
+                    <p class="item-detail">Quantity: <span>${this.quantity}</span></p>
+                </div>
+            </div>
+        `;
+    }
+    // Метод для вычисления стоимости одного товара
+    getTotalPrice() {
+        return this.price * this.quantity;
+    }
+}
+
+class GoodsList {
+    constructor() {
+        this.goods = []; // Массив для хранения товаров
+    }
+
+    fetchGoods() {
+        this.goods = [
+            new GoodsItem("Red Dress", 120.00, "images/item1.jpg", "Red", "M", 2),
+            new GoodsItem("Blue Jeans", 75.00, "images/item2.jpg", "Blue", "L", 1),
+            new GoodsItem("Leather Jacket", 250.00, "images/item3.jpg", "Black", "XL", 1),
+        ];
+    }
+
+    render() {
+        const container = document.querySelector(".cart-items");
+        const totalContainer = document.querySelector(".summary-total span");
+        if (!container) return;
+
+        const itemsMarkup = this.goods.map(item => item.render()).join("");
+
+        container.innerHTML = `
+            ${itemsMarkup}
+            <div class="cart-buttons">
+                <button class="clear-cart">CLEAR SHOPPING CART</button>
+                <button class="continue-shopping">CONTINUE SHOPPING</button>
+            </div>
+        `;
+
+        // Подсчитываем общую стоимость всех товаров
+        const totalPrice = this.goods.reduce((total, item) => total + item.getTotalPrice(), 0);
+        totalContainer.textContent = `$${totalPrice.toFixed(2)}`;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const goodsList = new GoodsList();
+    goodsList.fetchGoods(); // Заполняем список товаров
+    goodsList.render();     // Отображаем список
+});
