@@ -1,4 +1,3 @@
-/* style.css */
 * {
     margin: 0;
     padding: 0;
@@ -76,9 +75,7 @@ body {
 
 .image img {
     max-width: 100%;
-    /*height: auto;*/
-    /*width: 400px;*/
-    //margin-right: 50px;
+    /*//margin-right: 50px;*/
     margin-right: 500px;
 }
 
@@ -128,7 +125,7 @@ body {
 
 .category-card {
     position: relative;
-    width: calc(23% - 10px); /* Три карточки в ряд */
+    width: calc(23% - 10px);
     height: 300px;
     overflow: hidden;
 }
@@ -227,8 +224,8 @@ body {
 
 .item-card img {
     width: 100%;
-    height: 500px; /* Фиксированная высота */
-    object-fit: cover; /* Сохраняет пропорции изображения и обрезает его по границам */
+    height: 500px;
+    object-fit: cover;
     border-radius: 8px;
     margin-bottom: 10px;
 }
@@ -261,24 +258,24 @@ body {
     justify-content: center;
     align-items: center;
     height: 200px;
-    //background-color: #F1E4E6; /* Фон секции для согласованности */
+    /*//background-color: #F1E4E6;*/
 }
 
 .browse-button {
     padding: 12px 24px;
     font-size: 16px;
     font-weight: bold;
-    color: #F16D7F; /* Красный цвет текста */
-    border: 2px solid #F16D7F; /* Красная граница */
-    background-color: transparent; /* Прозрачный фон */
+    color: #F16D7F;
+    border: 2px solid #F16D7F;
+    background-color: transparent;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .browse-button:hover {
-    background-color: #F16D7F; /* Красный фон при наведении */
-    color: #FFFFFF; /* Белый текст при наведении */
+    background-color: #F16D7F;
+    color: #FFFFFF;
 }
 
 /* style.css */
@@ -286,9 +283,9 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #222224; /* Цвет фона секции */
+    background-color: #222224;
     padding: 50px 0;
-    color: #FFFFFF; /* Белый текст по умолчанию */
+    color: #FFFFFF;
 }
 
 .block {
@@ -297,9 +294,6 @@ body {
 }
 
 .block img {
-    /*width: 40px; !* Фиксированная ширина иконки *!*/
-    /*height: 40px; !* Фиксированная высота иконки *!*/
-    /*//object-fit: cover;*/
     margin-bottom: 15px;
 }
 
@@ -309,7 +303,141 @@ body {
 }
 
 .block p {
-    color: #BBBBBB; /* Серый цвет для описания */
+    color: #BBBBBB;
     font-size: 14px;
     line-height: 1.5;
+}
+
+/* style.css */
+.subscribe-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: url('images/background-subsciber-section.jpg') no-repeat center center/cover;
+    padding: 50px;
+    color: #FFFFFF;
+    height: 500px;
+}
+
+.quote-block {
+    width: 40%;
+    text-align: left;
+}
+
+.quote-block img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    margin-left: 150px;
+}
+
+.quote-block .quote {
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.5;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+.subscribe-block {
+    width: 50%;
+    color: black;
+    text-align: center;
+}
+
+.subscribe-block h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subscribe-block p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.subscribe-form {
+    display: flex;
+    align-items: center;
+}
+
+.subscribe-form input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-right: none;
+    outline: none;
+    border-radius: 30px 0 0 30px;
+}
+
+.subscribe-form button {
+    background-color: #F16D7F;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 0 30px 30px 0;
+}
+
+.subscribe-form button:hover {
+    background-color: #d85669;
+}
+
+.footer {
+    background-color: #222224;
+    color: #FFFFFF;
+    padding: 20px 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer-right {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    transition: opacity 0.3s;
+    color: white;
+}
+
+.social-icon:hover {
+    opacity: 0.7;
+}
+
+.social-icon.facebook {
+    background-image: url('images/facebook.svg');
+}
+
+.social-icon.instagram {
+    background-image: url('images/instagram.svg');
+}
+
+.social-icon.pinterest {
+    background-image: url('images/pinterest.svg');
+}
+
+.social-icon.twitter {
+    background-image: url('images/twitter.svg');
 }
