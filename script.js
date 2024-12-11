@@ -38,31 +38,64 @@ const products = [
     {
         name: "Red Dress",
         price: 120.00,
-        description: "Elegant red dress for special occasions."
+        description: "Elegant red dress for special occasions.",
+        image: "images/item1.jpg"
     },
     {
         name: "Blue Jeans",
         price: 75.00,
-        description: "Classic blue jeans with a modern fit."
+        description: "Classic blue jeans with a modern fit.",
+        image: "images/item2.jpg"
     },
     {
         name: "Leather Jacket",
         price: 250.00,
-        description: "Stylish leather jacket for any weather."
+        description: "Stylish leather jacket for any weather.",
+        image: "images/item3.jpg"
     },
     {
         name: "Running Shoes",
         price: 90.00,
-        description: "Comfortable running shoes for everyday use."
+        description: "Comfortable running shoes for everyday use.",
+        image: "images/item4.jpg"
     },
     {
         name: "Backpack",
         price: 65.00,
-        description: "Durable and spacious backpack for travel."
+        description: "Durable and spacious backpack for travel.",
+        image: "images/item5.jpg"
     },
     {
         name: "Sunglasses",
         price: 45.00,
-        description: "Trendy sunglasses with UV protection."
+        description: "Trendy sunglasses with UV protection.",
+        image: "images/item6.jpg"
     }
 ];
+
+
+// Функция для создания разметки одного товара
+function createProductMarkup(product) {
+    return `
+        <div class="item-card">
+            <img src="${product.image}" alt="${product.name}">
+            <h3 class="item-title">${product.name}</h3>
+            <p class="item-description">${product.description}</p>
+            <p class="item-price">$${product.price.toFixed(2)}</p>
+        </div>
+    `;
+}
+
+// Функция для отображения всех товаров в контейнере
+function renderProductsList() {
+    const container = document.querySelector(".goods-list .items-grid");
+    if (!container) return;
+
+    const productsMarkup = products.map(createProductMarkup).join("");
+
+    container.innerHTML = productsMarkup;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    renderProductsList();
+});
