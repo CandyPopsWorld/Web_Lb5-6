@@ -174,3 +174,27 @@ document.addEventListener("DOMContentLoaded", () => {
     goodsList.fetchGoods(); // Заполняем список товаров
     goodsList.render();     // Отображаем список
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".subscribe-form");
+    const emailInput = document.getElementById("emailInput");
+    const errorMessage = document.getElementById("error-message");
+
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const email = emailInput.value.trim();
+
+        if (!emailRegex.test(email)) {
+            emailInput.style.border = "2px solid red";
+            errorMessage.style.display = "block";
+        } else {
+            emailInput.style.border = "";
+            errorMessage.style.display = "none";
+            alert("Подписка успешна!");
+        }
+    });
+});
