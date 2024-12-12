@@ -41,38 +41,6 @@
 <section class="cart-section">
   <div class="cart-content">
     <div class="cart-items">
-<!--      <div class="cart-item">-->
-<!--        <div class="item-left">-->
-<!--          <img src="images/item1.jpg" alt="Product" class="item-image">-->
-<!--        </div>-->
-<!--        <div class="item-right">-->
-<!--          <div class="item-header">-->
-<!--            <h4 class="item-name">Product Name</h4>-->
-<!--            <img src="images/close.svg" alt="Close" class="close-icon">-->
-<!--          </div>-->
-<!--          <p class="item-detail">Price: <span>$52.00</span></p>-->
-<!--          <p class="item-detail">Color: <span>Red</span></p>-->
-<!--          <p class="item-detail">Size: <span>M</span></p>-->
-<!--          <p class="item-detail">Quantity: <span>2</span></p>-->
-<!--        </div>-->
-<!--      </div>-->
-
-<!--      <div class="cart-item">-->
-<!--        <div class="item-left">-->
-<!--          <img src="images/item3.jpg" alt="Product" class="item-image">-->
-<!--        </div>-->
-<!--        <div class="item-right">-->
-<!--          <div class="item-header">-->
-<!--            <h4 class="item-name">Product Name</h4>-->
-<!--            <img src="images/close.svg" alt="Close" class="close-icon">-->
-<!--          </div>-->
-<!--          <p class="item-detail">Price: <span>$52.00</span></p>-->
-<!--          <p class="item-detail">Color: <span>Red</span></p>-->
-<!--          <p class="item-detail">Size: <span>M</span></p>-->
-<!--          <p class="item-detail">Quantity: <span>2</span></p>-->
-<!--        </div>-->
-<!--      </div>-->
-
       <div class="cart-buttons">
         <button class="clear-cart">CLEAR SHOPPING CART</button>
         <button class="continue-shopping">CONTINUE SHOPPING</button>
@@ -120,8 +88,9 @@
     <h2>SUBSCRIBE</h2>
     <p>FOR OUR NEWSLETTER AND PROMOTION</p>
     <form class="subscribe-form">
-      <input type="email" placeholder="Enter Your Email" required>
+      <label for="emailInput"></label><input type="email" placeholder="Enter Your Email" id="emailInput" required>
       <button type="submit">Subscribe</button>
+      <p id="error-message" style="color: red; display: none;">Please enter a valid email address.</p>
     </form>
   </div>
 </section>

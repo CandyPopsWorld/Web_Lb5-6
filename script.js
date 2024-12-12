@@ -171,30 +171,38 @@ class GoodsList {
 
 document.addEventListener("DOMContentLoaded", () => {
     const goodsList = new GoodsList();
-    goodsList.fetchGoods(); // Заполняем список товаров
-    goodsList.render();     // Отображаем список
+    goodsList.fetchGoods();
+    goodsList.render();
 });
 
+document.addEventListener("click", function (event) {
+    if (event.target.closest(".subscribe-form")) {
+        const form = event.target.closest(".subscribe-form");
+        const emailInput = form.querySelector("#emailInput");
+        const errorMessage = form.querySelector("#error-message");
 
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector(".subscribe-form");
-    const emailInput = document.getElementById("emailInput");
-    const errorMessage = document.getElementById("error-message");
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        // Проверка, был ли обработчик уже добавлен
+        if (!form.dataset.submitHandlerAdded) {
+            form.dataset.submitHandlerAdded = "true";
 
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
 
-        const email = emailInput.value.trim();
+                const email = emailInput.value.trim();
 
-        if (!emailRegex.test(email)) {
-            emailInput.style.border = "2px solid red";
-            errorMessage.style.display = "block";
-        } else {
-            emailInput.style.border = "";
-            errorMessage.style.display = "none";
-            alert("Подписка успешна!");
+                if (!emailRegex.test(email)) {
+                    emailInput.style.border = "2px solid red";
+                    errorMessage.style.display = "block";
+                } else {
+                    emailInput.style.border = "";
+                    errorMessage.style.display = "none";
+                    alert("Подписка успешна!");
+                }
+            });
         }
-    });
+    }
 });
+
+
